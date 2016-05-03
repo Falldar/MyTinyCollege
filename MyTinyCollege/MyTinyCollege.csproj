@@ -224,10 +224,19 @@
       <DependentUpon>201604251432302_FirstName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\CollegeMigrations\Configuration.cs" />
+    <Compile Include="Migration\IdentityMigrations\201604211417097_InitialCreate.cs" />
+    <Compile Include="Migration\IdentityMigrations\201604211417097_InitialCreate.Designer.cs">
+      <DependentUpon>201604211417097_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\IdentityMigrations\201605031431093_InitialSeed.cs" />
+    <Compile Include="Migration\IdentityMigrations\201605031431093_InitialSeed.Designer.cs">
+      <DependentUpon>201605031431093_InitialSeed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration\IdentityMigrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\DepartmentController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\OfficeAssignment.cs" />
@@ -324,9 +333,11 @@
     <Content Include="Views\Department\Details.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Index.cshtml" />
+    <None Include="Views\Course\UpdateCourseCredits.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DeptPics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -342,6 +353,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\CollegeMigrations\201604251432302_FirstName.resx">
       <DependentUpon>201604251432302_FirstName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\IdentityMigrations\201604211417097_InitialCreate.resx">
+      <DependentUpon>201604211417097_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration\IdentityMigrations\201605031431093_InitialSeed.resx">
+      <DependentUpon>201605031431093_InitialSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

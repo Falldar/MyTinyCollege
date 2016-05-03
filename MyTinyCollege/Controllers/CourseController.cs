@@ -10,7 +10,8 @@ using MyTinyCollege.DAL;
 using MyTinyCollege.Models;
 
 namespace MyTinyCollege.Controllers
-{
+{   
+    [Authorize(Roles = "admin")]
     public class CourseController : Controller
     {
         private SchoolContext db = new SchoolContext();
@@ -139,6 +140,27 @@ namespace MyTinyCollege.Controllers
             db.Courses.Remove(course);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult UpdateCourseCredits()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult UpdateCourseCredits(int? multiplier)
+        {
+            if(multiplier != null)
+            {
+                /* Raw SQL query
+                 *  Usee the Database.SqlQuery method for queries that return types that are not entities.
+                 *  the returned data isn't tracked by the database context object.
+                 * 
+                 */
+                ViewBag.RowsAffected = db.Database.ExecuteSqlCommand("UPDATE course SET credits = credits * {0}", multiplier);
+                //var test = db.Database.SqlQuery<MyTinyCollege.Models.Course>("Select ...");
+            }
+
+            return View();
         }
 
         protected override void Dispose(bool disposing)

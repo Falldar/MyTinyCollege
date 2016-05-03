@@ -9,8 +9,10 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace MyTinyCollege.DAL
 {
-    class SchoolContext:DbContext
-    {
+    class SchoolContext : DbContext
+    {   
+
+        //DAL Data Access Layer
         //Constructor: Initialize connectionstring (to match web.config)
         public SchoolContext() : base("DefaultConnection")
         {
