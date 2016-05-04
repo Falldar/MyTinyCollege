@@ -13,6 +13,8 @@ using MyTinyCollege.ViewModels; //for student body report
 
 namespace MyTinyCollege.Controllers
 {
+    [Authorize(Roles = "admin")]
+
     public class StudentController : Controller
     {
         private SchoolContext db = new SchoolContext();

@@ -12,6 +12,8 @@ using MyTinyCollege.Helpers;
 
 namespace MyTinyCollege.Models
 {
+    [Authorize(Roles = "admin")]
+
     public class DepartmentController : Controller
     {
         private SchoolContext db = new SchoolContext();
