@@ -42,7 +42,7 @@ namespace MyTinyCollege.Controllers
                 .OrderBy(d => d.CourseID).Include(d => d.Departments);
             return courses;
         }
-
+        [AllowAnonymous]
         // GET: Course/Details/5
         public ActionResult Details(int? id)
         {
@@ -161,6 +161,14 @@ namespace MyTinyCollege.Controllers
             }
 
             return View();
+        }
+        //Anonymous users view of courses
+        [AllowAnonymous]
+        public ActionResult Listing(int? selectedDepartment)
+        {
+
+            IQueryable<Course> courses = GetCourses(selectedDepartment);
+            return View(courses.ToList());
         }
 
         protected override void Dispose(bool disposing)

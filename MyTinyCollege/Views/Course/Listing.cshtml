@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MyTinyCollege.Models.Course>
+
+@{
+    ViewBag.Title = "Available Courses";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="form-inline">
+        <div class="form-group">
+            Select Department: @Html.DropDownList("SelectedDepartment", null, "All", new
+                          { onchange = "$(this).closest('form').submit();",
+                            @class = "form-control input-sm"
+                          })
+            <input type="submit" class="btn btn-sm btn-default" id="filter" name="filter" />
+        </div>
+    </div>
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <h2>@Html.DisplayFor(model=> item.Title)</h2>
+            <p>Description would go here...</p>
+            <p>@Html.DisplayFor(model=> item.Credits) Credits</p>
+            @Html.ActionLink("Details", "Details", new { id = item.CourseID}, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
